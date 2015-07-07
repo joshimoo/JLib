@@ -1,7 +1,8 @@
-#JamLib
-JLib is a Java Library that contains a collection data structures and algorithms.
+#JLib
+JLib is a Java Library which contains a collection of data structures and algorithms.
 
 ##DataStructures
+- [BinarySearchTree] (src/com/sleepycoders/jlib/tree/BinarySearchTree.java)
 
 
 ##Algorithms
