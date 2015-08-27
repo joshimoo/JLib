@@ -6,6 +6,7 @@ JLib is a Java Library which contains a collection of data structures and algori
 
 
 ##Algorithms
+- [Average] (src/com/sleepycoders/jlib/math/Average.java)
 
 
 ##Credits
