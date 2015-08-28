@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.math;
+package com.sleepycoders.jlib.algorithm.math;
 
 import java.util.*;
 import java.util.stream.DoubleStream;

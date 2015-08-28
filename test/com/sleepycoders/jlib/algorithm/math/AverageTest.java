@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.math;
+package com.sleepycoders.jlib.algorithm.math;
 
 import org.junit.Test;
 import java.util.stream.DoubleStream;
@@ -67,7 +67,7 @@ public class AverageTest {
 
     @Test
     public void testGeometricMean() throws Exception {
-        // (x1·x2·...xn) ^ (1/n)
+        // (x1ï¿½x2ï¿½...xn) ^ (1/n)
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double expected = Math.pow((numbers[0] * numbers[1] * numbers[2] * numbers[3] * numbers[4]), 1.0 / numbers.length);
         assertEquals(expected, Average.geometricMean(numbers), DELTA);

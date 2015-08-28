@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.tree;
+package com.sleepycoders.jlib.datastructure.tree;
 import org.junit.Test;
 import java.util.Comparator;
 import static org.junit.Assert.*;

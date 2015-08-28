@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.tree;
+package com.sleepycoders.jlib.datastructure.tree;
 
 import java.util.ArrayList;
 import java.util.Comparator;
