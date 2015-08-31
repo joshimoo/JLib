@@ -8,9 +8,12 @@ public final class BinarySearch {
 
     public static final int NOT_FOUND = -1;
 
+    /**
+     * Don't let anyone instantiate this class.
+     */
     private BinarySearch() {}
 
-    public static <T extends Comparable<? super T>> int Search(T[] data, T elem) {
+    public static <T extends Comparable<? super T>> int search(T[] data, T elem) {
         int low = 0;
         int high = data.length - 1;
 
@@ -26,7 +29,7 @@ public final class BinarySearch {
         return NOT_FOUND;
     }
 
-    public static <T> int Search(T[] data, T elem, Comparator<? super T> cmp) {
+    public static <T> int search(T[] data, T elem, Comparator<? super T> cmp) {
         int low = 0;
         int high = data.length - 1;
 
