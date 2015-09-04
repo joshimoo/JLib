@@ -14,19 +14,7 @@ public final class BinarySearch {
     private BinarySearch() {}
 
     public static <T extends Comparable<? super T>> int search(T[] data, T elem) {
-        int low = 0;
-        int high = data.length - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int c = elem.compareTo(data[mid]);
-
-            if (c < 0) { high = mid - 1; }
-            else if (c > 0) { low = mid + 1; }
-            else { return mid; }
-        }
-
-        return NOT_FOUND;
+        return search(data, elem, Comparator.<T>naturalOrder());
     }
 
     public static <T> int search(T[] data, T elem, Comparator<? super T> cmp) {

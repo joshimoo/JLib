@@ -1,5 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import java.util.Comparator;
+
 /**
  * HeapSort implementation, does the heap in place in the data array.
  * @author Joshua Moody (joshimoo@hotmail.de)
@@ -15,11 +17,19 @@ public final class HeapSort {
     /**
      * HeapSort, builds a max-heap inplace then sorts that max-heap step by step
      * While maintaining the heap-invariant
+     * Uses the natural order for sorting c1.compareTo(c2)
      */
     public static <T extends Comparable<? super T>> void sort(T[] data) {
+        sort(data, Comparator.<T>naturalOrder());
+    }
 
+    /**
+     * HeapSort, builds a max-heap inplace then sorts that max-heap step by step
+     * While maintaining the heap-invariant
+     */
+    public static <T> void sort(T[] data, Comparator<? super T> cmp) {
         // Create a max heap, so that the max element is at the root (data[0])
-        heapify(data);
+        heapify(data, cmp);
 
         // The following loop maintains the invariants that a[0:end] is a heap and every element
         // beyond end is greater than everything before it (so a[end:count] is in sorted order)
@@ -28,7 +38,7 @@ public final class HeapSort {
             Utility.swap(data, 0, endIndex);
 
             // the swap ruined the heap property, so restore it for all elements in front of the sorted elements (endIndex -1)
-            shiftDown(data, 0, endIndex - 1);
+            siftDown(data, cmp, 0, endIndex - 1);
         }
     }
 
@@ -36,7 +46,7 @@ public final class HeapSort {
     /**
      * Transforms the passed data into a max/min heap
      */
-    private static <T extends Comparable<? super T>> void heapify(T[] data) {
+    private static <T> void heapify(T[] data, Comparator<? super T> cmp) {
 
         // start is assigned the index of the last parent node,
         // since leafs already full fill the max-heap property
@@ -44,14 +54,14 @@ public final class HeapSort {
 
             // shift down the node at startIndex to the proper place,
             // such that all nodes below the startIndex are in heap order
-            shiftDown(data, startIndex, data.length - 1);
+            siftDown(data, cmp, startIndex, data.length - 1);
         }
     }
 
     /**
      * Fixes Single violation of a max/min heap
      */
-    private static <T extends Comparable<? super T>> void shiftDown(T[] data, int startIndex, int endIndex) {
+    private static <T> void siftDown(T[] data, Comparator<? super T> cmp, int startIndex, int endIndex) {
 
         // While the root has at least one child
         int root = startIndex;
@@ -62,8 +72,8 @@ public final class HeapSort {
             int swap = root;
 
             // If the left/right child is bigger then swap, make them the new swap
-            if (data[swap].compareTo(data[leftChild]) < 0) { swap = leftChild; }
-            if (rightChild <= endIndex && data[swap].compareTo(data[rightChild]) < 0) { swap = rightChild; }
+            if (cmp.compare(data[swap], data[leftChild]) < 0) { swap = leftChild; }
+            if (rightChild <= endIndex && cmp.compare(data[swap], data[rightChild]) < 0) { swap = rightChild; }
 
             // Update the root element, till we have nothing left to swap
             if (swap != root) {
