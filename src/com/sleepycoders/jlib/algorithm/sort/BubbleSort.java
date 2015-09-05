@@ -7,7 +7,7 @@ import java.util.Comparator;
  * @author Joshua Moody (joshimoo@hotmail.de)
  * @deprecated Prefer other Sorting Algorithms instead of BubbleSort (Quick,Tim,Merge,Insertion)
  */
-public class BubbleSort {
+public final class BubbleSort {
 
     /**
      * Don't let anyone instantiate this class.
