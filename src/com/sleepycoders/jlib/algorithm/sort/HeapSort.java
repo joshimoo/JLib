@@ -1,5 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sleepycoders.jlib.util.Arrays;
+
 import java.util.Comparator;
 
 /**
@@ -35,7 +37,7 @@ public final class HeapSort {
         // beyond end is greater than everything before it (so a[end:count] is in sorted order)
         for (int endIndex = data.length - 1; endIndex > 0; endIndex--) {
             // a[0] is the root and largest value. The swap moves it in front of the sorted elements.
-            Utility.swap(data, 0, endIndex);
+            Arrays.swap(data, 0, endIndex);
 
             // the swap ruined the heap property, so restore it for all elements in front of the sorted elements (endIndex -1)
             siftDown(data, cmp, 0, endIndex - 1);
@@ -77,7 +79,7 @@ public final class HeapSort {
 
             // Update the root element, till we have nothing left to swap
             if (swap != root) {
-                Utility.swap(data, root, swap);
+                Arrays.swap(data, root, swap);
                 root = swap;
             } else { return; }
         }

@@ -1,5 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sleepycoders.jlib.util.Arrays;
+
 import java.util.Comparator;
 
 /**
@@ -35,7 +37,7 @@ public final class SelectionSort {
                 }
             }
 
-            Utility.swap(data, i, minIndex);
+            Arrays.swap(data, i, minIndex);
         }
     }
 
@@ -65,7 +67,7 @@ public final class SelectionSort {
     private static <T> void sortRec(T[] data, Comparator<? super T> cmp, int index) {
         // Base Cases - we are outside of our data array
         if (index >= data.length) { return; }
-        Utility.swap(data, index, minIndexRec(data, cmp, index));
+        Arrays.swap(data, index, minIndexRec(data, cmp, index));
         sortRec(data, cmp, index + 1);
     }
 

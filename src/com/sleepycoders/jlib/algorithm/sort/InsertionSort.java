@@ -1,5 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sleepycoders.jlib.util.Arrays;
+
 import java.util.Comparator;
 
 /**
@@ -66,7 +68,7 @@ public final class InsertionSort {
     static <T> void sortViaSwapping(T[] data, Comparator<? super T> cmp) {
         for (int i = 1; i < data.length; i++) {
             for (int j = i; j > 0 && cmp.compare(data[j - 1], data[j]) > 0 ; j--) {
-                Utility.swap(data, j-1, j);
+                Arrays.swap(data, j - 1, j);
             }
         }
     }
@@ -109,7 +111,7 @@ public final class InsertionSort {
         if (current < 0) { return; }
 
         if (cmp.compare(data[current], data[elem]) > 0) {
-            Utility.swap(data, current, elem);
+            Arrays.swap(data, current, elem);
             insertRec(data, cmp, current, current - 1);
         }
     }

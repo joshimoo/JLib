@@ -1,5 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sleepycoders.jlib.util.Arrays;
+
 import java.util.Comparator;
 
 /**
@@ -40,7 +42,7 @@ public final class BubbleSort {
 
             for (int i = 1; i < data.length - alreadySorted; i++) {
                 if (cmp.compare(data[i - 1], data[i]) > 0) {
-                    Utility.swap(data, i - 1, i);
+                    Arrays.swap(data, i - 1, i);
                     sorted = false;
                 }
             }
@@ -71,7 +73,7 @@ public final class BubbleSort {
     private static <T> void sortRec(T[] data, Comparator<? super T> cmp, int current, int alreadySorted) {
         // continue sorting the current run
         if (current < data.length - alreadySorted) {
-            if (cmp.compare(data[current - 1], data[current]) > 0) { Utility.swap(data, current - 1, current); }
+            if (cmp.compare(data[current - 1], data[current]) > 0) { Arrays.swap(data, current - 1, current); }
             sortRec(data, cmp, current + 1, alreadySorted);
         } else if (alreadySorted < data.length - 1) {
             // Base Cases - we finished sorting, this run, increase sorted partition by 1
