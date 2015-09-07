@@ -46,6 +46,14 @@ public class BubbleSortTest {
     }
 
     @Test
+    public void testSortDuplicate() throws Exception {
+        Integer[] actual = new Integer[] {1, 1, 1, 1};
+        Integer[] expected = new Integer[] {1, 1, 1, 1};
+        BubbleSort.sort(actual);
+        assertThat(actual, is(expected));
+    }
+
+    @Test
     public void testSortRec() throws Exception {
         Integer[] actual = new Integer[] {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         Integer[] expected = new Integer[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};

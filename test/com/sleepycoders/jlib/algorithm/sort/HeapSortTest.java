@@ -46,5 +46,13 @@ public class HeapSortTest {
         assertThat(actual, is(expected));
     }
 
+    @Test
+    public void testSortDuplicate() throws Exception {
+        Integer[] actual = new Integer[] {1, 1, 1, 1};
+        Integer[] expected = new Integer[] {1, 1, 1, 1};
+        HeapSort.sort(actual);
+        assertThat(actual, is(expected));
+    }
+
     // TODO: Consider using Junit4 Parametrized Tests
 }

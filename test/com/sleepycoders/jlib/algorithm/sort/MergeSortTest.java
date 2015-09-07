@@ -1,5 +1,6 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sun.scenario.effect.Merge;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -42,6 +43,14 @@ public class MergeSortTest {
     public void testSortAlreadySorted() throws Exception {
         Integer[] actual = new Integer[] {1,2,3,4};
         Integer[] expected = new Integer[] {1,2,3,4};
+        MergeSort.sort(actual);
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void testSortDuplicate() throws Exception {
+        Integer[] actual = new Integer[] {1, 1, 1, 1};
+        Integer[] expected = new Integer[] {1, 1, 1, 1};
         MergeSort.sort(actual);
         assertThat(actual, is(expected));
     }

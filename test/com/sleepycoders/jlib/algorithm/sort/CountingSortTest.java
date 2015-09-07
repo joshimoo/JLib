@@ -44,6 +44,14 @@ public class CountingSortTest {
         assertThat(actual, is(expected));
     }
 
+    @Test
+    public void testSortDuplicate() throws Exception {
+        int[] actual = new int[] {1, 1, 1, 1};
+        int[] expected = new int[] {1, 1, 1, 1};
+        CountingSort.sort(actual);
+        assertThat(actual, is(expected));
+    }
+
     @Test(expected = ArithmeticException.class)
     public void testSortOutsideRangeThrow() throws Exception {
         // This will lead to the maximum, memory consumption
