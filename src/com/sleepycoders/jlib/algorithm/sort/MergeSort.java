@@ -42,6 +42,8 @@ public final class MergeSort {
      * @param high upper index inclusive
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp, int low, int high) {
+        assert data != null && cmp != null;
+
         // Base Case - 1 Element List is always sorted
         if (low >= high) { return; }
         int mid = low + (high - low) / 2;
@@ -60,6 +62,8 @@ public final class MergeSort {
      * @param high upper index inclusive
      */
     private static <T> void merge(T[] data, Comparator<? super T> cmp, int low, int mid, int high) {
+        assert data != null && cmp != null;
+
         T[] left = Arrays.copyOfRange(data, low, mid + 1);
         T[] right = Arrays.copyOfRange(data, mid + 1, high + 1);
 

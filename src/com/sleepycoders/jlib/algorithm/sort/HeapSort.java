@@ -30,6 +30,8 @@ public final class HeapSort {
      * While maintaining the heap-invariant
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
+
         // Create a max heap, so that the max element is at the root (data[0])
         heapify(data, cmp);
 
@@ -49,6 +51,7 @@ public final class HeapSort {
      * Transforms the passed data into a max/min heap
      */
     private static <T> void heapify(T[] data, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
 
         // start is assigned the index of the last parent node,
         // since leafs already full fill the max-heap property
@@ -64,6 +67,7 @@ public final class HeapSort {
      * Fixes Single violation of a max/min heap
      */
     private static <T> void siftDown(T[] data, Comparator<? super T> cmp, int startIndex, int endIndex) {
+        assert data != null && cmp != null && startIndex >= 0 && endIndex >= 0;
 
         // While the root has at least one child
         int root = startIndex;

@@ -21,6 +21,7 @@ public final class CountingSort {
      * worst case memory: 2^24 * size(int) ~> 64 mb
      */
     public static void sort(int[] data) {
+        assert data != null;
         IntSummaryStatistics stats = IntStream.of(data).summaryStatistics();
         sort(data, stats.getMin(), stats.getMax());
     }
@@ -32,6 +33,8 @@ public final class CountingSort {
      * This also allows us to work with negative numbers :)
      */
     public static void sort(int[] data, int min, int max) {
+        assert data != null;
+
         // Count how many items of each there are
         long size = ((long)max - min) + 1;
         if (size >= MAX_RANGE) {

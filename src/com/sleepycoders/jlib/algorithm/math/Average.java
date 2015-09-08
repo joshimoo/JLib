@@ -26,7 +26,7 @@ public final class Average {
      * numbers and weights need to have the same count
      */
     public static double weightedMean(double[] numbers, double[] weights) {
-        assert numbers.length == weights.length;
+        assert numbers != null && weights != null && numbers.length == weights.length;
         double weightedSum = 0;
         for (int i = 0; i < numbers.length; i++) {
             weightedSum += numbers[i] * weights[i];
@@ -40,6 +40,7 @@ public final class Average {
      * according to this formula: n/(1/x1 + 1/x2 + ... + 1/xn)
      */
     public static double harmonicMean(double... numbers) {
+        assert numbers != null;
         return numbers.length / DoubleStream.of(numbers).map(x -> 1.0 / x).sum();
     }
 
@@ -48,6 +49,7 @@ public final class Average {
      * according to this formula: (x1^2 + x2^2 + ... + xn^2)/(x1 + x2 + ... + xn)
      */
     public static double contraHarmonicMean(double... numbers) {
+        assert numbers != null;
         return DoubleStream.of(numbers).map(x -> Math.pow(x, 2.0)).sum() / DoubleStream.of(numbers).sum();
     }
 
@@ -59,6 +61,7 @@ public final class Average {
     public static double geometricMean(double... numbers) {
         // TODO: For large numbers, consider summing the logarithms of each x
         // (x1·x2·...xn) ^ (1/n)
+        assert numbers != null;
         return Math.pow(DoubleStream.of(numbers).reduce(1.0, (a, x) -> (a * x)), 1.0d / numbers.length);
     }
 
@@ -75,6 +78,7 @@ public final class Average {
      * according to this formula: y-root( (x1)^y+(x2)^y+(x3)^y+...+(xn)^y / n )
      */
     public static double generalizedMean(double[] numbers, double power) {
+        assert numbers != null;
         return Math.pow(arithmeticMean(DoubleStream.of(numbers).map(x -> Math.pow(x, power)).toArray()), 1.0 / power);
     }
 
@@ -82,6 +86,7 @@ public final class Average {
      * Get the mid value beetwen min and max
      */
     public static double midrange(double... numbers) {
+        assert numbers != null;
         DoubleSummaryStatistics stat = DoubleStream.of(numbers).summaryStatistics();
         return arithmeticMean(stat.getMin(), stat.getMax());
     }
@@ -92,6 +97,7 @@ public final class Average {
      * @return mean average of left and right for even numbers, else mid element
      */
     public static double median(double... numbers) {
+        assert numbers != null;
         if (numbers.length % 2 == 0) {
             double left = numbers[(numbers.length / 2) - 1];
             double right = numbers[numbers.length / 2];
@@ -108,6 +114,7 @@ public final class Average {
      */
     public static double mode(double... numbers) {
         // Stupid Type System, all this boxing :(
+        assert numbers != null;
         Map<Double, Integer> frequencies = new HashMap<>();
 
         for(double key : numbers) {

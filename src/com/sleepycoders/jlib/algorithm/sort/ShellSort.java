@@ -18,7 +18,7 @@ public final class ShellSort {
     /**
      * Marcin Ciura's gap sequence
      */
-    private static final Integer[] gaps = new Integer[] { 701, 301, 132, 57, 23, 10, 4, 1 };
+    private static final Integer[] defaultGapSequence = new Integer[] { 701, 301, 132, 57, 23, 10, 4, 1 };
 
     /**
      * ShellSort runs multiple InsertionSorts with a custom gap between elements
@@ -27,7 +27,7 @@ public final class ShellSort {
      * Marcin Ciura's gap sequence is used by default
      */
     public static <T extends Comparable<? super T>> void sort(T[] data) {
-        sort(data, gaps, Comparator.<T>naturalOrder());
+        sort(data, defaultGapSequence, Comparator.<T>naturalOrder());
     }
 
     /**
@@ -48,7 +48,7 @@ public final class ShellSort {
      * Marcin Ciura's gap sequence is used by default
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp) {
-        sort(data, gaps, cmp);
+        sort(data, defaultGapSequence, cmp);
     }
 
     /**
@@ -58,8 +58,10 @@ public final class ShellSort {
      * @param gaps must be descendingly sorted and contain the element 1
      */
     public static <T> void sort(T[] data, Integer[] gaps, Comparator<? super T> cmp) {
-        assert(data != null && cmp != null && gaps != null && gaps.length > 0);
-        assert(java.util.Arrays.asList(gaps).contains(1));
+        assert data != null && cmp != null && gaps != null && gaps.length > 0;
+        if (!java.util.Arrays.asList(gaps).contains(1)) {
+            throw new IllegalArgumentException("The gap-sequence needs to contain, 1 as the last element");
+        }
 
         // Make sure that the gaps are decreasingly sorted
         java.util.Arrays.sort(gaps, Comparator.<Integer>reverseOrder());

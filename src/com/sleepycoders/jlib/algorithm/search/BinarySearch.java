@@ -18,6 +18,8 @@ public final class BinarySearch {
     }
 
     public static <T> int search(T[] data, T elem, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
+
         int low = 0;
         int high = data.length - 1;
 

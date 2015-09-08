@@ -31,6 +31,7 @@ public final class BubbleSort {
      * Runtime will depend on sorted percentage, with worst-case of O(n^2)
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
         boolean sorted = false;
         int alreadySorted = 0;
 
@@ -61,7 +62,7 @@ public final class BubbleSort {
      */
     @Deprecated
     static <T extends Comparable<? super T>> void sortRec(T[] data) {
-        sort(data, Comparator.<T>naturalOrder());
+        sortRec(data, Comparator.<T>naturalOrder());
     }
 
     @Deprecated
@@ -71,6 +72,8 @@ public final class BubbleSort {
 
     @Deprecated
     private static <T> void sortRec(T[] data, Comparator<? super T> cmp, int current, int alreadySorted) {
+        assert data != null && cmp != null;
+
         // continue sorting the current run
         if (current < data.length - alreadySorted) {
             if (cmp.compare(data[current - 1], data[current]) > 0) { Arrays.swap(data, current - 1, current); }

@@ -31,6 +31,7 @@ public final class InsertionSort {
      * Inserts that element into the correct spot in the sorted part
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
         for (int i = 1; i < data.length; i++) {
             T x = data[i];
             int j = i;
@@ -47,7 +48,6 @@ public final class InsertionSort {
     }
 
     // region SwapBased Implementation - package internal, don't use
-
     /**
      * Swaps elements till target is in the right slot, instead of shifting
      * Nicer code, but more overhead then shifting
@@ -66,13 +66,14 @@ public final class InsertionSort {
      */
     @Deprecated
     static <T> void sortViaSwapping(T[] data, Comparator<? super T> cmp) {
+        assert(data != null && cmp != null);
+
         for (int i = 1; i < data.length; i++) {
             for (int j = i; j > 0 && cmp.compare(data[j - 1], data[j]) > 0 ; j--) {
                 Arrays.swap(data, j - 1, j);
             }
         }
     }
-
     // endregion
 
     // region Recursive Implementation - package internal, don't use
@@ -99,6 +100,8 @@ public final class InsertionSort {
 
     @Deprecated
     private static <T> void sortRec(T[] data, Comparator<? super T> cmp, int current) {
+        assert(data != null && cmp != null);
+
         // Base Case - we are outside the array
         if (current >= data.length) { return; }
         insertRec(data, cmp, current, current - 1);
@@ -107,6 +110,8 @@ public final class InsertionSort {
 
     @Deprecated
     private static <T> void insertRec(T[] data, Comparator<? super T> cmp, int elem, int current) {
+        assert(data != null && cmp != null);
+
         // Base Case - we are outside the array
         if (current < 0) { return; }
 

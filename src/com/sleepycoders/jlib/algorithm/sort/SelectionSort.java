@@ -29,6 +29,8 @@ public final class SelectionSort {
      * Then foreach iteration finds the min Element in the unsorted part and appends it to the sorted part.
      */
     public static <T> void sort(T[] data, Comparator<? super T> cmp) {
+        assert data != null && cmp != null;
+
         for (int i = 0; i < data.length; i++) {
             int minIndex = i;
             for (int j = i + 1; j < data.length ; j++) {
@@ -65,6 +67,8 @@ public final class SelectionSort {
 
     @Deprecated
     private static <T> void sortRec(T[] data, Comparator<? super T> cmp, int index) {
+        assert data != null && cmp != null;
+
         // Base Cases - we are outside of our data array
         if (index >= data.length) { return; }
         Arrays.swap(data, index, minIndexRec(data, cmp, index));
@@ -78,6 +82,8 @@ public final class SelectionSort {
 
     @Deprecated
     private static <T> int minIndexRec(T[] data, Comparator<? super T> cmp, int i, int min) {
+        assert data != null && cmp != null;
+
         // Base Cases - we are outside of our data array
         if (i >= data.length) { return min; }
         return cmp.compare(data[i], data[min]) < 0 ? minIndexRec(data, cmp, i + 1, i) : minIndexRec(data, cmp, i + 1, min);
