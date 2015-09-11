@@ -83,11 +83,11 @@ public class ShellSortTest {
         assertThat(actual, is(expected));
     }
 
-    @Test(expected = AssertionError.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testSortInvalidGaps() throws Exception {
         Integer[] actual = new Integer[] {1,2,3,4};
         Integer[] expected = new Integer[] {4,3,2,1};
-        // The last gap size needs to be 1
+        // The gap-sequence needs to contain a 1
         Integer[] gaps = new Integer[] {4,2,0};
         ShellSort.sort(actual, gaps);
         assertThat(actual, is(expected));
