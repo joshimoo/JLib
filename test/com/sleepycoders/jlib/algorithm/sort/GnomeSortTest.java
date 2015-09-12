@@ -3,6 +3,8 @@ package com.sleepycoders.jlib.algorithm.sort;
 import com.sleepycoders.jlib.algorithm.shuffle.KnuthShuffle;
 import org.junit.Test;
 
+import java.util.Comparator;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -53,6 +55,15 @@ public class GnomeSortTest {
         Integer[] actual = new Integer[] {1, 1, 1, 1};
         Integer[] expected = new Integer[] {1, 1, 1, 1};
         GnomeSort.sort(actual);
+        assertThat(actual, is(expected));
+    }
+
+    @Test(timeout = 250)
+    public void testSortReverse() throws Exception {
+        Integer[] actual = new Integer[] {1,2,3,4};
+        Integer[] expected = new Integer[] {4,3,2,1};
+        KnuthShuffle.shuffle(actual);
+        GnomeSort.sort(actual, Comparator.<Integer>reverseOrder());
         assertThat(actual, is(expected));
     }
 }

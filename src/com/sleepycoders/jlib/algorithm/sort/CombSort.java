@@ -1,6 +1,7 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
 import com.sleepycoders.jlib.util.Arrays;
+import com.sun.javaws.exceptions.InvalidArgumentException;
 
 import java.util.Comparator;
 
@@ -63,7 +64,8 @@ public final class CombSort {
      * @param shrink he shrink factor has a great effect on the efficiency of comb sort
      */
     public static <T> void sort(T[] data, float shrink, Comparator<? super T> cmp) {
-        assert data != null && cmp != null && shrink > 0;
+        assert data != null && cmp != null;
+        if (shrink <= 0) { throw new IllegalArgumentException("The Shrink factor needs to be bigger then 0"); }
         int gap = data.length;
         boolean sorted = false;
 

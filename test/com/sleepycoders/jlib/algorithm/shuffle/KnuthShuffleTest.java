@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class KnuthShuffleTest {
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffle() throws Exception {
         // hmm, in knuth shuffle the array can be the same.
         // since it's inclusive, so it's hard to write a good unit test.
@@ -24,7 +24,7 @@ public class KnuthShuffleTest {
         assertThat(Arrays.asList(actual), hasItems(expected));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffleEmpty() throws Exception {
         Integer[] actual = new Integer[0];
         Integer[] expected = new Integer[0];
@@ -32,7 +32,7 @@ public class KnuthShuffleTest {
         assertThat(actual, is(expected));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffleCustomRng() throws Exception {
         Integer[] actual = new Integer[] {1,2,3,4};
         Integer[] expected = new Integer[] {2,3,4,1};

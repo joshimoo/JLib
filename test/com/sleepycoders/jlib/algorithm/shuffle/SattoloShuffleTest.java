@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
  */
 public class SattoloShuffleTest {
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffle() throws Exception {
         // In a Satollo Shuffle the Array cannot be the same, since each item moves at least once
         Integer[] actual = new Integer[] {1, 2, 3, 4};
@@ -25,7 +25,7 @@ public class SattoloShuffleTest {
         assertThat(Arrays.asList(actual), not(expected));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffleEmpty() throws Exception {
         Integer[] actual = new Integer[0];
         Integer[] expected = new Integer[0];
@@ -33,7 +33,7 @@ public class SattoloShuffleTest {
         assertThat(actual, is(expected));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testShuffleCustomRng() throws Exception {
         Integer[] actual = new Integer[] {1,2,3,4};
         Integer[] expected = new Integer[] {2,3,4,1};

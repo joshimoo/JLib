@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class AverageTest {
     private static final double DELTA = 0.01;
 
-    @Test
+    @Test(timeout = 250)
     public void testAverageInequality() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
 
@@ -35,14 +35,14 @@ public class AverageTest {
         assertTrue("Your Average inequalities are not correct", (contraHarmonic >= quadratic) && (quadratic >= arithmetic) && (arithmetic >= geometric) && (geometric >= harmonic));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testArithmeticMean() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double expected = DoubleStream.of(numbers).average().getAsDouble();
         assertEquals(expected, Average.arithmeticMean(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testWeightedMean() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double[] weights = new double[] { 1, 1, 1, 1, 1 };
@@ -50,7 +50,7 @@ public class AverageTest {
         assertEquals(expected, Average.weightedMean(numbers, weights), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testHarmonicMean() throws Exception {
         // n/(1/x1 + 1/x2 + ... + 1/xn)
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
@@ -58,14 +58,14 @@ public class AverageTest {
         assertEquals(expected, Average.harmonicMean(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testContraHarmonicMean() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double expected = DoubleStream.of(numbers).map(x -> Math.pow(x, 2.0)).sum() / DoubleStream.of(numbers).sum();
         assertEquals(expected, Average.contraHarmonicMean(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testGeometricMean() throws Exception {
         // (x1�x2�...xn) ^ (1/n)
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
@@ -73,7 +73,7 @@ public class AverageTest {
         assertEquals(expected, Average.geometricMean(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testQuadraticMean() throws Exception {
         // sqrt((x1)^2+(x2)^2+(x3)^2+...+(xn)^2 /n)
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
@@ -81,7 +81,7 @@ public class AverageTest {
         assertEquals(expected, Average.quadraticMean(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testGeneralizedMean() throws Exception {
         // y-root((x1)^y+(x2)^y+(x3)^y+...+(xn)^y / n)
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
@@ -90,28 +90,28 @@ public class AverageTest {
         assertEquals(expected, Average.generalizedMean(numbers, power), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testMidrange() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double expected = (numbers[0] + numbers[numbers.length - 1]) / 2.0;
         assertEquals(expected, Average.midrange(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testMedianEven() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5, 6};
         double expected = (numbers[(numbers.length / 2) - 1] + numbers[numbers.length / 2]) / 2.0;
         assertEquals(expected, Average.median(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testMedianOdd() throws Exception {
         double[] numbers = new double[] { 1, 2, 3, 4, 5 };
         double expected = numbers[((int) Math.floor(numbers.length / 2))];
         assertEquals(expected, Average.median(numbers), DELTA);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testMode() throws Exception {
         // frequency based average
         double[] numbers = new double[] { 1, 2, 3, 3, 3, 4, 5 };

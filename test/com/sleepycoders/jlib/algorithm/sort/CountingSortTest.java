@@ -1,6 +1,9 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
+import com.sleepycoders.jlib.algorithm.shuffle.KnuthShuffle;
 import org.junit.Test;
+
+import java.util.Comparator;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

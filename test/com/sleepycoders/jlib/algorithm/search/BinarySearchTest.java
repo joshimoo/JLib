@@ -10,20 +10,20 @@ import java.util.Comparator;
  */
 public class BinarySearchTest {
 
-    @Test
+    @Test(timeout = 250)
     public void testSearch() throws Exception {
         Integer[] data = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         int expected = 5;
         Assert.assertEquals(expected, BinarySearch.search(data, data[expected]));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testSearchNotFound() throws Exception {
         Integer[] data = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         Assert.assertEquals(BinarySearch.NOT_FOUND, BinarySearch.search(data, 10));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testSearchDesc() throws Exception {
         Integer[] data = new Integer[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         int expected = 5;
@@ -31,13 +31,13 @@ public class BinarySearchTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testSearchDescNotFound() throws Exception {
         Integer[] data = new Integer[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         Assert.assertEquals(BinarySearch.NOT_FOUND, BinarySearch.search(data, 10, Comparator.<Integer>reverseOrder()));
     }
 
-    @Test
+    @Test(timeout = 250)
     public void testSearchCustomComparer() throws Exception {
         Person[] data = new Person[] {new Person("A", "A", 0), new Person("A", "B", 1), new Person("A", "B", 2), new Person("X", "X", 3) };
 
