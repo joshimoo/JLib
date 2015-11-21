@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.datastructures.trie;
+package com.sleepycoders.jlib.datastructure.trie;
 
 import java.util.Collection;
 

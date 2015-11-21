@@ -1,4 +1,4 @@
-package com.sleepycoders.jlib.datastructures.trie;
+package com.sleepycoders.jlib.datastructure.trie;
 
 /**
  * @author Joshua Moody (joshimoo@hotmail.de)
