@@ -5,14 +5,14 @@ JLib is a Java Library which contains a collection of data structures and algori
 ##DataStructures
 
 ###tree
-- [ ] [AVLTree] (src/com/sleepycoders/jlib/tree/AVLTree.java)
-- [X] [BinarySearchTree] (src/com/sleepycoders/jlib/tree/BinarySearchTree.java)
-- [ ] [BTree] (src/com/sleepycoders/jlib/tree/BTree.java)
-- [ ] [RBTree] (src/com/sleepycoders/jlib/tree/RBTree.java)
+- [ ] [AVLTree] (src/com/sleepycoders/jlib/datastructure/tree/AVLTree.java)
+- [X] [BinarySearchTree] (src/com/sleepycoders/jlib/datastructure/tree/BinarySearchTree.java)
+- [ ] [BTree] (src/com/sleepycoders/jlib/datastructure/tree/BTree.java)
+- [ ] [RBTree] (src/com/sleepycoders/jlib/datastructure/tree/RBTree.java)
 
 ###trie
-- [X] [Trie] (src/com/sleepycoders/jlib/trie/Trie.java)
-- [X] [Alphabet] (src/com/sleepycoders/jlib/trie/Alphabet.java)
+- [X] [Trie] (src/com/sleepycoders/jlib/datastructure/trie/Trie.java)
+- [X] [Alphabet] (src/com/sleepycoders/jlib/datastructure/trie/Alphabet.java)
 
 
 ##Algorithms
