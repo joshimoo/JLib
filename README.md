@@ -4,6 +4,10 @@ JLib is a Java Library which contains a collection of data structures and algori
 
 ##DataStructures
 
+###graph
+- [X] [DirectedDenseGraph] (src/com/sleepycoders/jlib/datastructure/graph/DirectedDenseGraph.java)
+- [ ] [DirectedSparseGraph] (src/com/sleepycoders/jlib/datastructure/graph/DirectedSparseGraph.java)
+
 ###tree
 - [ ] [AVLTree] (src/com/sleepycoders/jlib/datastructure/tree/AVLTree.java)
 - [X] [BinarySearchTree] (src/com/sleepycoders/jlib/datastructure/tree/BinarySearchTree.java)
