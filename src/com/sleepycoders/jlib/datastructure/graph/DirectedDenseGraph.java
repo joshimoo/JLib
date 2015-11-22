@@ -12,9 +12,14 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
     final int EMPTY_EDGE_SLOT = 0;
     final int DEFAULT_EDGE_WEIGHT = 1;
 
-    int vertexCount;
     int vertexCapacity;
+    int vertexCount;
+    public int vertexCount() {
+        return vertexCount;
+    }
+
     int edgeCount;
+    public int edgeCount() { return edgeCount; }
 
     List<TVertex> vertices;
     int[][] adjacencyMatrix;
@@ -40,11 +45,11 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
 
 
     // Vertices
-    boolean containsVertex(int v) {
-        return vertices.get(v) != EMPTY_VERTEX_SLOT;
-    }
     public boolean containsVertex(TVertex v) {
-        return vertices.contains(v);
+        return containsVertex(vertices.indexOf(v));
+    }
+    private boolean containsVertex(int v) {
+        return v != -1 && vertices.get(v) != EMPTY_VERTEX_SLOT;
     }
 
     public boolean addVertex(TVertex v) {
@@ -75,9 +80,8 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
 
         // remove edges
         for (int i = 0; i < vertexCapacity; i++) {
-            adjacencyMatrix[index][i] = EMPTY_EDGE_SLOT;
-            adjacencyMatrix[i][index] = EMPTY_EDGE_SLOT;
-            edgeCount -= 2;
+            removeEdge(index, i);
+            removeEdge(i, index);
         }
 
         return true;
@@ -85,20 +89,17 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
 
 
     // Edges
-    boolean containsEdge(int src, int dst) {
-        return adjacencyMatrix[src][dst] != EMPTY_EDGE_SLOT;
-    }
     public boolean containsEdge(TVertex src, TVertex dst) {
-        int srcIndex = vertices.indexOf(src);
-        int dstIndex = vertices.indexOf(dst);
-        return (srcIndex != -1 && dstIndex != -1 && containsEdge(srcIndex, dstIndex));
+        return containsEdge(vertices.indexOf(src), vertices.indexOf(dst));
+    }
+    private boolean containsEdge(int srcIndex, int dstIndex) {
+        return srcIndex != -1 && dstIndex != -1 && adjacencyMatrix[srcIndex][dstIndex] != EMPTY_EDGE_SLOT;
     }
 
     public boolean addEdge(TVertex src, TVertex dst) {
-        int srcIndex = vertices.indexOf(src);
-        int dstIndex = vertices.indexOf(dst);
-
-        // valid vertices?
+        return addEdge(vertices.indexOf(src), vertices.indexOf(dst));
+    }
+    private boolean addEdge(int srcIndex, int dstIndex) {
         if (srcIndex == -1 || dstIndex == -1 || containsEdge(srcIndex, dstIndex)) { return false; }
         adjacencyMatrix[srcIndex][dstIndex] = DEFAULT_EDGE_WEIGHT;
         edgeCount++;
@@ -106,10 +107,9 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
     }
 
     public boolean removeEdge(TVertex src, TVertex dst) {
-        int srcIndex = vertices.indexOf(src);
-        int dstIndex = vertices.indexOf(dst);
-
-        // valid vertices?
+        return removeEdge(vertices.indexOf(src), vertices.indexOf(dst));
+    }
+    private boolean removeEdge(int srcIndex, int dstIndex) {
         if (srcIndex == -1 || dstIndex == -1 || !containsEdge(srcIndex, dstIndex)) { return false; }
         adjacencyMatrix[srcIndex][dstIndex] = EMPTY_EDGE_SLOT;
         edgeCount--;
@@ -127,7 +127,6 @@ public class DirectedDenseGraph<TVertex> implements IGraph<TVertex> {
 
         return destinations;
     }
-
 
     /**
      * @return a human-readable string of the graph.
