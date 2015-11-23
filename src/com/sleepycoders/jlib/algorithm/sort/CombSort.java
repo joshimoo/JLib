@@ -1,7 +1,6 @@
 package com.sleepycoders.jlib.algorithm.sort;
 
 import com.sleepycoders.jlib.util.Arrays;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 
 import java.util.Comparator;
 
