@@ -1,6 +1,6 @@
 #JLib
 JLib is a Java Library which contains a collection of data structures and algorithms.
-
+[![Build Status](https://travis-ci.org/joshimoo/JLib.svg?branch=master)](https://travis-ci.org/joshimoo/JLib)
 
 ##DataStructures
 
