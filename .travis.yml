@@ -3,12 +3,12 @@ jdk:
   - oraclejdk8
   - openjdk8
  
- env:
+env:
   - TERM=dumb
  
 before_install:
   - pip install --user codecov
   - chmod +x gradlew
 
-after_success:
+#after_success:
 #  - codecov
