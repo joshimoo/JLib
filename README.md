@@ -30,6 +30,7 @@ JLib is a Java Library which contains a collection of data structures and algori
 
 ###search
 - [X] [BinarySearch] (src/com/sleepycoders/jlib/algorithm/search/BinarySearch.java)
+- [X] [FindFirstAndSecond] (src/com/sleepycoders/jlib/algorithm/search/FindFirstAndSecond.java)
 
 ###shuffle
 - [X] [KnuthShuffle] (src/com/sleepycoders/jlib/algorithm/shuffle/KnuthShuffle.java)
